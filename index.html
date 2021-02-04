@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试webassembly</title>
+	<script src="loader.js"></script>
+</head>
+<body>
+<script>
+    loadWebAssembly('math.wasm')
+      .then(instance => {
+      	console.log('============1', instance)
+        const square = instance.exports.square
+        console.log('============', square)
+        console.log('2^2 =', square(2))
+        console.log('3^2 =', square(3))
+        console.log('(2 + 5)^2 =', square(2 + 5))
+      })
+  </script>
+</body>
+</html>
